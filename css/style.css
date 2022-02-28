@@ -32,3 +32,17 @@ body{
 .arrow-icon{
     font-size: 25px;
 }
+
+/* Details info */
+.info-title{
+    color: #3D72A4;
+}
+.info-image{
+    width: 250px !important;
+    height: 300px !important;
+    margin: 0 auto !important;
+}
+@media (max-width: 500px) {
+    
+}
+

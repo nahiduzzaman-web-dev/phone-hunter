@@ -34,7 +34,7 @@ const displayMobile = mobiles => {
                     <p class="card-text"></p>
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    <button class="btn btn-outline-success">Explore</button> <i class="text-success fa-solid fa-location-arrow arrow-icon"></i>
+                    <button onclick="details('${mobile.slug}')" class="btn btn-outline-success">Explore</button> <i class="text-success fa-solid fa-location-arrow arrow-icon"></i>
                 </div>
             </div>
         
@@ -44,3 +44,116 @@ const displayMobile = mobiles => {
 
     })
 };
+
+const details = info => {
+    const url = `https://openapi.programming-hero.com/api/phone/${info}`
+    console.log(url)
+    fetch(url)
+        .then(res => res.json())
+        .then(data => setDetails(data.data))
+    document.getElementById('mobiles-container').textContent = '';
+};
+
+const setDetails = info => {
+    const detailsDiv = document.getElementById('details-container');
+    const table = document.getElementById('table');
+    const div = document.createElement('div');
+    // div.classList.add('col');
+    div.innerHTML =
+        `
+        <div class="card mb-3">
+            <div class="card-body">
+                <div>
+                    <h2 class="text-center info-title">${info.brand}</h2> 
+                    <h3 class="text-center info-title">${info.name}</h3>
+                </div>
+                <div class="info-image">
+                    <img src="${info.image}" class="card-img-top img-fluid" alt="...">
+                </div>
+                <div class="text-center pt-3">
+                    <h3 class="py-4"> <span class="fst-italic">${info.name}</span> <i class="text-success fa-solid fa-circle-chevron-down"></i> Full Specifications</h3> 
+                </div>
+                <div class="table">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>    
+                                <td>First Release</td>
+                                <td>${info.releaseDate}</td>                   
+                            </tr>
+                    
+                            <tr class="bg-light">                       
+                                <td scope="row">Main Feature</td>
+                                <td colspan="2"></td>                       
+                            </tr>
+                    
+                            <tr>
+                                <th>Storage</th>
+                                <td>${info.mainFeatures.storage}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>Display Size</th>
+                                <td>${info.mainFeatures.displaySize}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>Chipset</th>
+                                <td>${info.mainFeatures.chipSet}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>Memory</th>
+                                <td>${info.mainFeatures.memory}</td>                
+                            </tr>
+                            <tr class="bg-light">
+                                <th scope="row">Sensor</th>
+                                <td colspan="2"></td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>Sensor</th>
+                                <td>${info.mainFeatures.sensors}</td>                
+                            </tr>
+                    
+                            <tr class="bg-light">
+                                <th scope="row">Connectivity (others)</th>
+                                <td colspan="2"></td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>WLAN</th>
+                                <td>${info.others.WLAN}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>Bluetooth</th>
+                                <td>${info.others.Bluetooth}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>GPS</th>
+                                <td>${info.others.GPS}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>NFC</th>
+                                <td>${info.others.NFC}</td>                
+                            </tr>
+                    
+                            <tr>
+                                <th>Radio</th>
+                                <td>${info.others.Radio}</td>                
+                            </tr>
+                            <tr>
+                                <th>USB</th>
+                                <td>${info.others.USB}</td>                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    `
+    detailsDiv.appendChild(div);
+    table.appendChild(div)
+}
