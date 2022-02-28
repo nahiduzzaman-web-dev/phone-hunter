@@ -66,15 +66,17 @@
                         <div class="text-center mb-2">
                             <h2>Welcome to <span class="logo-color">Mobile</span>Corner</h2>
                             <p>Open information place, You can get phone information <br>
-                                hopefully you can enjoy with us to get your good results. Thanks
+                                Hopefully you can enjoy with us to get your good results. Thanks
                             </p>
                             <i class="fa-solid fa-angles-down fa-bounce fs-1"></i>
                         </div>
                         <div class="d-flex justify-content-center">
                             <input id="search-field" class="form-control me-2" type="search" placeholder="Search"
                                 aria-label="Search">
-                            <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
+                            <button onclick="allMobile()" id="search-btn" class="btn btn-outline-success"
+                                type="submit">Search</button>
                         </div>
+                        <span class="error" id="error"></span>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -92,7 +94,8 @@
         <!-- search Output Section -->
         <section class="container mt-5 pb-4">
             <div class="row">
-                <div id="player-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
+                <div id="mobiles-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
+
 
             </div>
             <div class="row">

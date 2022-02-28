@@ -1,3 +1,9 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
 /* Logo */
 .logo{
     color: #fff;
@@ -9,4 +15,20 @@
 /* icon */
 .icon a{
     color: #fff !important;
+}
+
+/* Card CSS */
+.title-size{
+    font-size: 16px;
+    color: #3D72A4;
+}
+.card-title-design{
+    font-style: italic;
+}
+.card-footer{
+    background-color: #fff !important;
+    border: none !important;
+}
+.arrow-icon{
+    font-size: 25px;
 }
