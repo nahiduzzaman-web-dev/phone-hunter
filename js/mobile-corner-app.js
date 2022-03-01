@@ -2,9 +2,12 @@ const allMobile = () => {
 
     const searchBox = document.getElementById('search-field');
     const searchValue = searchBox.value.toLowerCase();
+    console.log((searchValue.value))
+    console.log(searchValue)
 
     if (searchValue === '') {
-        alert("Type your mobile name")
+        const warningContainer = document.getElementById('warning-container');
+        warningContainer.style.display = 'block';
     }
     else {
         // All Mobile search fetch
@@ -24,11 +27,16 @@ const allMobile = () => {
 
 // Display result
 const displayMobile = mobiles => {
-
+    if (mobiles.length == 0) {
+        const warningContainer2 = document.getElementById('warning-container2');
+        warningContainer2.style.display = 'block';
+    }
     document.getElementById('search-field').value = '';
     const parentDiv = document.getElementById('mobiles-container');
     const max20MobileData = mobiles.slice(0, 20)
+
     max20MobileData.forEach(mobile => {
+        console.log(mobile)
 
         const div = document.createElement('div');
         div.classList.add('col');
@@ -59,18 +67,19 @@ const details = info => {
     fetch(url)
         .then(res => res.json())
         .then(data => setDetails(data.data))
-    document.getElementById('mobiles-container').textContent = '';
+    // document.getElementById('mobiles-container').textContent = '';
 };
 
 const setDetails = info => {
     const detailsDiv = document.getElementById('details-container');
-    const table = document.getElementById('table');
+    detailsDiv.style.display = 'block';
     const div = document.createElement('div');
-    // div.classList.add('col');
+    console.log(info)
     div.innerHTML =
         `
         <div class="card mb-3 shadow-sm p-3 mb-5 bg-body rounded">
             <div class="card-body">
+                <p id="closed" onclick="InfoClosed()" class="text-danger xmark-icon text-end"> <i class="fa-solid fa-circle-xmark"></i> </>
                 <div>
                     <h2 class="text-center info-title">${info.brand ? info.brand : 'Not Found'}</h2> 
                     <h3 class="text-center info-title">${info.name ? info.name : 'Not Found'}</h3>
@@ -117,7 +126,7 @@ const setDetails = info => {
                         </li>
                         <li class="list-group-item">
                             <p class="list-span"> 
-                                <span class="fw-bold">Sensor:</span>
+                                <span class="fw-bold">Sensor: </span>
                                 <span>${info.mainFeatures.sensors ? info.mainFeatures.sensors : 'Not Found'}</span>
                             </p>    
                         </li>
@@ -170,3 +179,26 @@ const setDetails = info => {
     detailsDiv.appendChild(div);
 
 };
+
+// error closed button
+let close = document.getElementById("close-btn");
+close.addEventListener('click', function () {
+
+    const warningContainer = document.getElementById('warning-container');
+    warningContainer.style.display = 'none';
+
+})
+// 2nd error closed button
+let close2 = document.getElementById("close-btn2");
+close2.addEventListener('click', function () {
+
+    const warningContainer2 = document.getElementById('warning-container2');
+    warningContainer2.style.display = 'none';
+
+})
+// info closed button closed 
+function InfoClosed() {
+    console.log('closed click')
+    const detailsDiv = document.getElementById('details-container');
+    detailsDiv.style.display = 'none';
+}

@@ -4,6 +4,9 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+.btn:focus{
+box-shadow: none !important; 
+}
 /* Logo */
 .logo{
     color: #fff;
@@ -16,7 +19,9 @@ body{
 .icon a{
     color: #fff !important;
 }
-
+.xmark-icon{
+    cursor: pointer;
+}
 /* Card CSS */
 .title-size{
     font-size: 16px;
@@ -46,6 +51,30 @@ body{
     display: flex;
     justify-content: space-between;   
 }
+
+/* Error */
+.alert {
+    padding: 20px;
+    background-color: #e26b63fd;
+    color: white;
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
 @media only screen and (max-width: 600px) {
     .list-span{
         flex-direction: column;

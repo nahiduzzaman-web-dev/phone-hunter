@@ -78,7 +78,16 @@
                             <button onclick="allMobile()" id="search-btn" class="btn btn-outline-success"
                                 type="submit">Search</button>
                         </div>
-                        <span class="error" id="error"></span>
+                        <!-- Error Message -->
+                        <div id="warning-container" class="alert">
+                            <span id="close-btn" class="closebtn">&times;</span>
+                            <span id="warning-sms">Search by entering the mobile name of your choice.</span>
+                        </div>
+                        <div id="warning-container2" class="alert">
+                            <span id="close-btn2" class="closebtn">&times;</span>
+                            <span id="warning-sms">Sorry <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+                                your searcing mobile is not found</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -92,13 +101,6 @@
             </div>
         </section>
 
-        <!-- search Output Section -->
-        <section class="container mt-5 pb-4">
-            <div class="row">
-                <div id="mobiles-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
-            </div>
-        </section>
-
         <!-- details section -->
         <section class="container">
             <div class="row">
@@ -109,6 +111,15 @@
                 <div class="col-md-2"></div>
             </div>
         </section>
+
+        <!-- search Output Section -->
+        <section class="container mt-5 pb-4">
+            <div class="row">
+                <div id="mobiles-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
+            </div>
+        </section>
+
+
     </main>
 
     <!-- Footer Section -->
