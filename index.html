@@ -36,7 +36,8 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
+                            <!-- trigger modal -->
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">FAQ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
@@ -46,6 +47,59 @@
                 </div>
             </div>
         </nav>
+
+        <!-- FAQ Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">FAQ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Why visit this site - MobileCorner?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>You can easily find out about your favorite mobile</strong>
+                                        from now on. By doing this you will
+                                        be able to buy a good quality mobile like yours, from the shop of your choice.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Here we will find information about the products?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>From MobileCorner</strong>, you will
+                                        get information about digital products. Some more new features will be
+                                        introduced later. Thanks
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- main Section -->
@@ -78,6 +132,7 @@
                             <button onclick="allMobile()" id="search-btn" class="btn btn-outline-success"
                                 type="submit">Search</button>
                         </div>
+
                         <!-- Error Message -->
                         <div id="warning-container" class="alert">
                             <span id="close-btn" class="closebtn">&times;</span>
@@ -101,6 +156,21 @@
             </div>
         </section>
 
+        <!--Spinner Loading -->
+        <section id="loading">
+            <div class="container spinner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="circles">
+                            <div class="circle1"></div>
+                            <div class="circle2"></div>
+                            <div class="circle3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- details section -->
         <section class="container">
             <div class="row">
@@ -118,8 +188,6 @@
                 <div id="mobiles-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
             </div>
         </section>
-
-
     </main>
 
     <!-- Footer Section -->
