@@ -42,7 +42,14 @@ body{
     height: 300px !important;
     margin: 0 auto !important;
 }
-@media (max-width: 500px) {
-    
+.list-span{
+    display: flex;
+    justify-content: space-between;   
 }
+@media only screen and (max-width: 600px) {
+    .list-span{
+        flex-direction: column;
+    }
+}
+
 
