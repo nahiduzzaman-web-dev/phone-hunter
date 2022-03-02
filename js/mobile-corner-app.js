@@ -168,7 +168,7 @@ const setDetails = info => {
                         <li class="list-group-item">
                             <p class="list-span"> 
                                 <span class="fw-bold">Radio:</span>
-                                <span>${info?.others?.Radio ? info.others.NFC : 'Not Found'}</span>
+                                <span>${info?.others?.Radio ? info.others.Radio : 'Not Found'}</span>
                             </p>    
                         </li>
                         <li class="list-group-item">
